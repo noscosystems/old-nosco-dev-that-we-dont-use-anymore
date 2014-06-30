@@ -1,0 +1,41 @@
+{
+    "name":                                 "mynameiszanders/system60",
+    "description":                          "System60 Web Application",
+    "keywords":                             ["system60", "website", "application", "yii"],
+    "type":                                 "project",
+    "homepage":                             "https://github.com/mynameiszanders/system60",
+    "license":                              "proprietary",
+    "version":                              "0.1",
+
+    "authors": [
+        {
+            "name":                         "Zander Baldwin",
+            "email":                        "mynameiszanders@gmail.com",
+            "homepage":                     "http://mynameis.zande.rs/",
+            "role":                         "Developer"
+        }
+    ],
+
+    "minimum-stability":                    "dev",
+
+    "config": {
+        "vendor-dir":                       "application/vendor"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "application":                  ""
+        }
+    },
+
+    "require": {
+        "yiisoft/yii":                      "1.1.14",
+        "twbs/bootstrap":                   "3.1.*",
+
+        "php":                              ">=5.3.9"
+    },
+    "require-dev": {
+        "fzaninotto/faker":                 "1.3.*",
+        "phpunit/phpunit":                  "4.1.*"
+    }
+}
