@@ -7,7 +7,7 @@
     use \CEvent as Event;
     USE \CDbCriteria as DatabaseCriteria;
     use \application\components\helpers\IP;
-    use \application\models\db\auth\User;
+    use \application\models\db\User;
     use \application\models\db\auth\FailedLogin;
     use \application\components\auth\UserInterface;
 
