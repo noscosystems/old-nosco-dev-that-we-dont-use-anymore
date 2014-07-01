@@ -152,8 +152,8 @@
             // Load the model of the user defined by the username provided by the end-user.
             $criteria = new DatabaseCriteria;
             $criteria->addColumnCondition(array(
-                'username'  => $this->username,
-                'email'     => $this->username,
+                'user_name'  => $this->username,
+              //  'email'     => $this->username,
             ), 'or');
             $user = User::model()->find($criteria);
             // If the user does not exist in the database, or the user has been disabled (inactive), set the error code
@@ -165,7 +165,7 @@
                 $this->onUsernameInvalid(new Event($this));
                 return false;
             }
-            if(!$user->active) {
+            if((isset($user->active) && !$user->active) || (isset($user->disabled) && $user->disabled)) {
                 $this->errorCode = self::ERROR_INACTIVE;
                 return false;
             }
@@ -182,6 +182,9 @@
                 $this->errorCode = self::ERROR_IP_INVALID;
                 return false;
             }
+
+
+            /*
             // Get the time of the last failed login for this user and make sure they are not within the throttling
             // timeout. If they are, increment the number of premature attempts by one, set the error code to
             // ERROR_THROTTLED, and return false.
@@ -215,9 +218,12 @@
                     return false;
                 }
             }
+            /**/
+
             // Check that the password supplied matched the hash stored in the database. If it doesn't add a FailedLogin
             // entry, set the error code to ERROR_PASSWORD_INVALID, return false.
             if(!$user->verifyPassword($this->password)) {
+                /*
                 // A failed login attempt has occured, log it to the database for future security referencing.
                 $failedLogin = new FailedLogin;
                 $failedLogin->attributes = array(
@@ -227,6 +233,7 @@
                     'ip'        => IP::pton($_SERVER['REMOTE_ADDR']),
                 );
                 $failedLogin->save();
+                /**/
                 // Now that we have logged this attempt we can return the error.
                 $this->errorCode = self::ERROR_PASSWORD_INVALID;
                 // Raise the "onPasswordIncorrect" event; specifying that the password that the end-user entered was
