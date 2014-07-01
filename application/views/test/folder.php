@@ -17,7 +17,7 @@
 
 
 <hgroup>
-    <h1>	FOLDER uploader   </h1>
+    <h1>	FOLDER uploader  for {company name} </h1>
 
    <!-- 
    <input type='file' webkitdirectory>  
@@ -31,10 +31,7 @@
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
   </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-  </div>
+
   <div class="form-group">
     <label for="exampleInputPassword1">Description of Folder contents</label>
     <input type="text" class="form-control" id="desc" placeholder="desc">

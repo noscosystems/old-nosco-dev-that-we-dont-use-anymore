@@ -17,6 +17,7 @@
          */
         public function actionIndex()
         {
+
             echo "Folder uploader
 
             <br/>
@@ -65,21 +66,6 @@
 
 
         }
- public function actionApr()
-        {
-                $this->render(
-        'apr'
-        );
-        }
-
-public function actionFolderwithslider()
-        {
-
-             $this->render(
-                'folderwithslider',
-                array( // 'customer' => $customer,
-                    )); 
-            }
 
 
 
@@ -87,29 +73,7 @@ public function actionFolderwithslider()
 public function actionFolder()
         {
 
-  /*     
-    $count = 0;
-
-    if ($_SERVER['REQUEST_METHOD'] == 'POST')
-    {
-            
-        foreach ($_FILES['fileURL']['name'] as $i => $name) {
-            if (strlen($_FILES['fileURL']['name'][$i]) > 1) {
-
-                echo "uploading ".$name."<br>";
-                if (move_uploaded_file($_FILES['fileURL']['tmp_name'][$i], 'upload/'.$name)) {
-                    $count++;
-
-                }
-            }
-        }
-        echo "uploaded ".$count." files sucessfully";
-    }
-
-
-*/
-
-
+                // load user details ad pass to view
 
 
 
@@ -127,34 +91,6 @@ public function actionFolder()
             }
 
 
-            public function actionFolder2()
-        {
-
-             $this->render(
-                'folder2',
-                array( // 'customer' => $customer,
-                   // 'strategies' => $strategies,
-                   // 'strategy' => $strategy,
-                   // 'events' =>$events,
-                   // 'form' => $form,
-                  
-                    )); 
-            }
-
-
-             public function actionFolder3()
-        {
-
-             $this->render(
-                'folder3',
-                array( // 'customer' => $customer,
-                   // 'strategies' => $strategies,
-                   // 'strategy' => $strategy,
-                   // 'events' =>$events,
-                   // 'form' => $form,
-                  
-                    )); 
-            }
 
     }
 
