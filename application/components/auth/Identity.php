@@ -5,7 +5,7 @@
     use \Yii;
     use \CException as Exception;
     use \CEvent as Event;
-    USE \CDbCriteria as Criteria;
+    USE \CDbCriteria as DatabaseCriteria;
     use \application\components\helpers\IP;
     use \application\models\db\auth\User;
     use \application\models\db\auth\FailedLogin;
@@ -93,6 +93,10 @@
                 $this->errorCode = self::ERROR_ID_INVALID;
                 return false;
             }
+            if((isset($user->active) && !$user->active) || (isset($user->disabled) && $user->disabled)) {
+                $this->errorCode = self::ERROR_INACTIVE;
+                return false;
+            }
             // Set the identity ID to the ID of the user we are loading.
             $this->id = (int) $user->id;
             // Set the user variables that we would like persisted accross subsequent HTTP requests in the session
@@ -146,7 +150,7 @@
             // Raise the "startAuthenticate" event.
             $this->onAuthenticateStart(new Event($this));
             // Load the model of the user defined by the username provided by the end-user.
-            $criteria = new Criteria;
+            $criteria = new DatabaseCriteria;
             $criteria->addColumnCondition(array(
                 'username'  => $this->username,
                 'email'     => $this->username,
