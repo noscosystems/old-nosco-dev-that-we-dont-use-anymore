@@ -270,7 +270,7 @@
             $this->errorCode = self::ERROR_NONE;
             // The credentials provided by the end-user have now been authenticated. Log the timestamp of this
             // successful login to the database.
-            $user->lastLogin = microtime(true);
+           # $user->lastLogin = microtime(true);
             $user->save();
             // Return the appropriate boolean value.
             return true;
