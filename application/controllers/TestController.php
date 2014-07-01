@@ -5,6 +5,7 @@
     use \Yii;
     use \CException;
     use \application\components\Controller;
+    use \application\models\db\User;
 
     class TestController extends Controller
     {
@@ -72,20 +73,22 @@
 
 public function actionFolder()
         {
-
                 // load user details ad pass to view
-
-
-
+                $user=User::model()->findByPk(
+                Yii::app()->user->id
+                );
+                if($user===null){
+                 'Error, the user has not logged in yet';
+                }
 
 
              $this->render(
                 'folder',
                 array( // 'customer' => $customer,
-                   // 'strategies' => $strategies,
-                   // 'strategy' => $strategy,
-                   // 'events' =>$events,
-                   // 'form' => $form,
+                    //'strategies' => $strategies,
+                    //'strategy' => $strategy,
+                    //'events' =>$events,
+                    //'form' => $form,
                   
                     )); 
             }

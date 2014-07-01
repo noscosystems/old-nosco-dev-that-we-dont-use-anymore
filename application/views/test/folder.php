@@ -1,4 +1,6 @@
 <?php
+use application\models\db\User;
+
     $page = $this->action->id;
     $this->pageTitle = 'Home';
     $this->breadcrumbs = array();
@@ -25,7 +27,7 @@
     <form enctype="multipart/form-data"  role="form" method="POST" name="fileURL">
 
    --> 
-
+   
    <form  role="form" method="POST" name="fileURL"  enctype="multipart/form-data">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>

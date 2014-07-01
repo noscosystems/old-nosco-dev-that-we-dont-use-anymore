@@ -44,7 +44,7 @@ class User extends ActiveRecord
 			array('password2, url', 'length', 'max'=>80),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_name, password, active, user_name2, password2, url, company', 'safe', 'on'=>'search'),
+			array('id, user_name, password, active, user_name2, password2, url, email ,company', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,6 +73,7 @@ class User extends ActiveRecord
 			'password2' => 'Password2',
 			'url' => 'Url',
 			'company' => 'Company',
+			'emal'=>'Email',
 		);
 	}
 
@@ -102,6 +103,7 @@ class User extends ActiveRecord
 		$criteria->compare('password2',$this->password2,true);
 		$criteria->compare('url',$this->url,true);
 		$criteria->compare('company',$this->company);
+		$criteria->compare('email',$this->email);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -128,7 +130,7 @@ class User extends ActiveRecord
 	}
 	public function ipAllowed($ip)
 	{
-		
+
 	return true;	
 	}
 }
