@@ -6,7 +6,7 @@
     use \CException;
     use \CEvent as Event;
     use \application\components\helpers\IP;
-    use \application\models\db\auth\User;
+    use \application\models\db\User;
     use \application\components\auth\UserInterface;
     use \application\models\db\organisation\Branch;
 
