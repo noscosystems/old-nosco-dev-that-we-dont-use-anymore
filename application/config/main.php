@@ -48,7 +48,7 @@
         'name' => 'System60',
         'sourceLanguage' => 'en',
         'theme' => ENVIRONMENT,
-        'defaultController' => 'forecast',
+        'defaultController' => 'home',
         'controllerNamespace' => '\\application\\controllers',
 
         // Preloading 'log' component.
