@@ -100,8 +100,7 @@
                 .pop {
                     cursor: pointer;
                 }
-            </style>
-
+  /*          </style>
             <div class="sidenav hidden-print">
                 <div class="link">
                     <?php echo CHtml::link('<span class="glyphicon glyphicon-stats"></span>', Yii::app()->homeUrl, array()); ?>
@@ -141,7 +140,7 @@
                     </div>
                 </div> -->
             </div>
-
+*/
             <script>
             $(document).ready( function(){
                 // Main links

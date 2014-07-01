@@ -115,7 +115,7 @@ public function actionFolder()
 
 
 
-             $this->renderPartial(
+             $this->render(
                 'folder',
                 array( // 'customer' => $customer,
                    // 'strategies' => $strategies,
