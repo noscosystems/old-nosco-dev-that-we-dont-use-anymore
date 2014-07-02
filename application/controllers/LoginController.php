@@ -33,7 +33,7 @@
                 $areDetailsCorrect = $identity ->authenticate();
                 if ($areDetailsCorrect){
                     Yii::app()->user->login($identity);
-                    $this->redirect(array('/'));
+                    $this->redirect(array('test/folder'));
                 }
                 else{
 

@@ -5,7 +5,7 @@ if(Yii::app()->user->isGuest):
 ?>
 <?php
 //The URL insite on array
- echo CHtml::link( 'Login', array('/login'));
+ //echo CHtml::link( 'Login', array('/login'));
 ?>
 <?php
 else :

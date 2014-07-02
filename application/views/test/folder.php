@@ -19,7 +19,7 @@ use application\models\db\User;
 
 
 <hgroup>
-    <h1>	FOLDER uploader  for {company name} </h1>
+    <h1>	FOLDER uploader  for <?php echo $user->company ?> </h1>
 
    <!-- 
    <input type='file' webkitdirectory>  
@@ -27,11 +27,11 @@ use application\models\db\User;
     <form enctype="multipart/form-data"  role="form" method="POST" name="fileURL">
 
    --> 
-   
+
    <form  role="form" method="POST" name="fileURL"  enctype="multipart/form-data">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+    <label for="exampleInputEmail1"></label>
+    <input type="email" class="form-control" id="exampleInputEmail1" value ="<?php echo $user->email ?>" placeholder="Enter email">
   </div>
 
   <div class="form-group">
