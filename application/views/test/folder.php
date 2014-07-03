@@ -183,12 +183,14 @@ $(document).ready( function(){
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-            
+           
         foreach ($_FILES['fileURL']['name'] as $i => $name) {
 
 
           $allowedExts = array("pdf", "PDF");
-        $extension = end(explode(".", $_FILES["fileURL"]["name"]));
+        //$extension = end(explode(".", $_FILES["fileURL"]["name"]));
+          $filenameParts = preg_split('/\\./', $name, -1, PREG_SPLIT_NO_EMPTY );
+          $extension = end($filenameParts);
         if ((($_FILES["fileURL"]["type"] == "image/PDF")
         || ($_FILES["fileURL"]["type"] == "image/pdf"))
         && ($_FILES["fileURL"]["size"] < 20000)
@@ -201,7 +203,7 @@ $(document).ready( function(){
             if (strlen($_FILES['fileURL']['name'][$i]) > 1) {
 
                 echo "uploading ".$name."<br>";
-                if (move_uploaded_file($_FILES['fileURL']['tmp_name'][$i], 'upload/'.$name)) {
+                if (move_uploaded_file($_FILES['fileURL']['tmp_name'][$i], Yii::getPathOfAlias('webroot.upload') . '/' . $name)) {
                     $count++;
 
                 }
