@@ -5,15 +5,14 @@ use application\models\db\User;
     $this->pageTitle = 'Home';
     $this->breadcrumbs = array();
     $this->layout = '//layouts/column2';
-
- //   $this->menu = array(
- //       array('label' => 'View recently uploaded folders', 'url' => array('/actions/index')),
- //       array('label' => 'Run a virus check', 'url' => array('/actions/tomorrow')),
+    $this->menu = array(
+        array('label' => 'View recently uploaded folders', 'url' => array('/actions/index')),
+        array('label' => 'Run a virus check', 'url' => array('/actions/tomorrow')),
         //array('label' => 'Next 30 Days', 'url' => array('/actions/month')),
         //array('label' => 'Admin Actions', 'url' => array('/actions/admin'), 'visible' => Yii::app()->user->priv >= 40),
      //   array('label' => 'New Task', 'url' => array('/actions/task1')),
     //  array('label' => Yii::t('chaser', 'Strategies/Plans'), 'url' => array('/strategies')),
- //   );
+    );
 ?>
 
 
@@ -28,11 +27,11 @@ use application\models\db\User;
     <form enctype="multipart/form-data"  role="form" method="POST" name="fileURL">
 
    --> 
-   
+
    <form  role="form" method="POST" name="fileURL"  enctype="multipart/form-data">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" value= "<?php echo $user->email ?>" placeholder="Enter email">
+    <label for="exampleInputEmail1"></label>
+    <input type="email" class="form-control" id="exampleInputEmail1" value ="<?php echo $user->email ?>" placeholder="Enter email">
   </div>
 
   <div class="form-group">
@@ -51,13 +50,11 @@ use application\models\db\User;
  		</ul>
 	</div> 
 	</br>
-  <!--
   <div class="checkbox">
     <label>
       <input type="checkbox"> please send me a confirmation email 
     </label>
   </div>
--->
   <button type="submit" class="btn btn-default">Submit</button>
 
 <!--
@@ -179,79 +176,47 @@ $(document).ready( function(){
 
  </script>
 
-                        <?php
-/*
-                           $count = 0;
-
-                            if ($_SERVER['REQUEST_METHOD'] == 'POST')
-                            {
-                                    
-                                foreach ($_FILES['fileURL']['name'] as $i => $name) {
-
-                                  $allowedExts = array("pdf", "PDF");
-                           //     $extension = end(explode(".", $_FILES["fileURL"]["name"]));
-
-
-                                if ((($_FILES["fileURL"]["type"] == "image/PDF")
-                                || ($_FILES["fileURL"]["type"] == "image/pdf"))
-                                && ($_FILES["fileURL"]["size"] < 20000)
-                                && in_array($extension, $allowedExts))
-
-                                    if (strlen($_FILES['fileURL']['name'][$i]) > 1) {
-
-                                        echo "uploading ".$name."<br>";
-                                        if (move_uploaded_file($_FILES['fileURL']['tmp_name'][$i], 'upload/'.$name)) {
-                                            $count++;
-
-                                        }
-                                    }
-                                }
-                                echo "<br/>Uploaded ".$count." files sucessfully";
-                            }
-
-*/
-                        ?>
-
 <?php
-
-$upload = "upload/".$user->url."/";
 
 
     $count = 0;
 
     if ($_SERVER['REQUEST_METHOD'] == 'POST')
     {
-            
+           
         foreach ($_FILES['fileURL']['name'] as $i => $name) {
+
+
+          $allowedExts = array("pdf", "PDF");
+        //$extension = end(explode(".", $_FILES["fileURL"]["name"]));
+          $filenameParts = preg_split('/\\./', $name, -1, PREG_SPLIT_NO_EMPTY );
+          $extension = end($filenameParts);
+        if ((($_FILES["fileURL"]["type"] == "image/PDF")
+        || ($_FILES["fileURL"]["type"] == "image/pdf"))
+        && ($_FILES["fileURL"]["size"] < 20000)
+        && in_array($extension, $allowedExts))
+
+
+
+
+
             if (strlen($_FILES['fileURL']['name'][$i]) > 1) {
 
-                echo "Uploaded - ".$name."<br>";
-               // if (move_uploaded_file($_FILES['fileURL']['tmp_name'][$i], 'upload/'.$name)) {
-                  if (move_uploaded_file($_FILES['fileURL']['tmp_name'][$i], $upload.$name)) {
+                echo "uploading ".$name."<br>";
+                if (move_uploaded_file($_FILES['fileURL']['tmp_name'][$i], Yii::getPathOfAlias('webroot.upload') . '/' . $name)) {
                     $count++;
 
                 }
             }
         }
         echo "<br/>Uploaded ".$count." files sucessfully";
-
-        $text = $count." files have been uploaded to Smarts Accounts";
-
-       //  $text = "Hello " . $customer->fullname . ",\n\n This email is to remind you that you have an appointment with " . $job->Branch->name . " at " . date("H:i", $job->Event->begin) . ", " . date("d/m/Y", $job->Event->begin) . ". \n\n Please do not reply to this email, thanks. ";
-                // $email = $customer->Contact->data;
-                //$email = "lmscowen@gmail.com";
-
-                $email = $user->email;
-
-                $subject ="Document uploader";
-                $headers = "From: " . "Smart  Accounts\r\n";
-                mail($email, $subject, $text, $headers);
-
     }
 
 
 
 ?>
+
+
 
 
 
