@@ -24,7 +24,7 @@
           <li><a href="#">Username</a></li>
             </ul>
         </div>
-      </form>
+      </form>-->
     </div>
 
   
@@ -32,43 +32,41 @@
  <!-- action="<?php// echo $this->createUrl(array('/admin/create')) ?>" mothod="post" it must be put at form with class form-horiontal-->
   <br/>
 	<div class="form-group form-group-sm">   
-    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">User name <!--<?php echo $user->user_name ?>--> </div>
+    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">Username<!--<?php echo $user->user_name ?>--></div>
     <div class="col-sm-10">
-
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
-      <span class="help-block">Please enter the new User name.</span>
-    </div>
-  </div>
-  <div class="form-group form-group-sm"> 
-   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>Password</div>
-    <div class="col-sm-10"><br/>
-      <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
-      <span class="help-block">Please enter the new password.</span>
-    </div>
-  </div>
-   <div class="form-group form-group-sm"> 
-   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>Repeat password</div>
-    <div class="col-sm-10"><br/>
-      <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
-      <span class="help-block">Please repeat the new password.</span>
+      <span class="help-block">Please enter the new Username.</span>
     </div>
   </div>
   <div class="form-group form-group-sm">   
-    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>Company <!--<?php echo $user->Company ?>--></div>
-    <div class="col-sm-10"><br/>
+    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">Password</div>
+    <div class="col-sm-10">
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
-      <span class="help-block">Please enter the new Company.</span>
+      <span class="help-block">Please enter the new Password.</span>
     </div>
   </div>
-  <div class="form-group form-group-sm"> 
-   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>Email <!--<?php echo $user->Email ?>--></div>
-    <div class="col-sm-10"><br/>
+  <div class="form-group form-group-sm">   
+    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">Repeat password</div>
+    <div class="col-sm-10">
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
-      <span class="help-block">Please enter the new email address.</span>
+      <span class="help-block">Please repeat the new Password.</span>
+    </div>
+  </div>
+  <div class="form-group form-group-sm">   
+    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">Company<!--<?php echo $user->company ?>--></div>
+    <div class="col-sm-10">
+      <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
+      <span class="help-block">Please enter the new Conpany.</span>
+    </div>
+  </div>
+  <div class="form-group form-group-sm">   
+    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">Email<!--<?php echo $user->email ?>--></div>
+    <div class="col-sm-10">
+      <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
+      <span class="help-block">Please enter the new Email.</span>
     </div>
   </div>
 </form>
-<!--<input type="submit" class="btn btn-primary btn pull-right" value="Save"></input>-->
-<input type="button" class="btn btn-primary pull-right" value="Save"></input><br /><br /><br /><br />
-	</body>
+<input type="submit" class="btn btn-primary btn pull-right" value="Save"></input><br /><br /><br />
+  </body>
 </html>

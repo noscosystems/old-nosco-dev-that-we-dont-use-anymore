@@ -1,6 +1,6 @@
 <?php
 
- namespace application\controllers;
+ 	namespace application\controllers;
 
     use \Yii;
     use \CException;
@@ -12,14 +12,94 @@ class AdminController extends Controller
 	public function actionIndex()
 	{
 	
-		$company=User::model()->findByAttribute(array('company')(
-			Yii::app()->user->company);
-			if ($company === null){
-				'Error, the company has not enter yet '}
-				$this->render ('adminPanel',array());
-			}
+	// 	$user=User::model()->findAll();
 
+	
+ // $this->render(
+ //                'view',
+ //                array(  'user' => $user,
+ //                    //'email' => $email,
+ //                    //'strategy' => $strategy,
+ //                    //'events' =>$events,
+ //                    //'form' => $form,
+                  
+ //                    ));
+
+		$this->render('index');
 	}
+
+	public function actionView(){
+		$user=User::model()->findAll();
+
+	
+ 		$this->render('view',
+                array(  'user' => $user[0],
+                    // 'email' => $email,
+                    // 'strategy' => $strategy,
+                    // 'events' =>$events,
+                    // 'form' => $form,
+                  
+                   ));
+	}
+
+
+	public function actionCreate()
+
+	{
+
+	$user=new User;
+    
+    {
+       
+        $user->attributes=array(
+        'user_name'=> $_POST['User'],
+      	'password'=>$_POST['Password'],
+      	'password2'=>$_POST['Repeate Password'],
+      	'company'=>$_POST['Company'],
+      	'email'=>$_POST['email'],
+      	);
+	}
+		if($user->save()){ 
+			$this->redirect(array('admin/view'));
+		}
+		else{
+			$this->redirect(array('AdminEdit'));
+		}
+		$user=User::model()->findAll();
+
+		$users = User::model()->findAll();
+	            $this->render('viewUsername',array('users'=>$users,));
+
+	            foreach($users as $user) {
+	            	echo $user->username;
+	            }
+
+	     }      
+	     public function actionUsername()
+	     {
+	     	$user=User::model()->findAll();
+
+	     	$this->render('viewUsername', array(
+	     		'users' => $user,
+	     	));
+	     }    
+	         public function actionEmail()
+	     {
+	     	$users=User::model()->findAll();
+	     		
+	     	$this->render('viewEmail', array(
+	     		'users' => $users,
+	     	));
+	     }  
+
+	        public function actionCompany()
+	     {
+	     	$users=User::model()->findAll();
+	     		
+	     	$this->render('view', array(
+	     		'users' => $users,
+	     	));
+	     }    		
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
