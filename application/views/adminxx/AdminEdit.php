@@ -28,11 +28,11 @@
     </div>
 
   
-  <form class="form-horizontal" role="form" >-->
+  <form class="form-horizontal" role="form" >
  <!-- action="<?php// echo $this->createUrl(array('/admin/create')) ?>" mothod="post" it must be put at form with class form-horiontal-->
   <br/>
 	<div class="form-group form-group-sm">   
-    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>User name <!--<?php echo $user->user_name ?>--> </div>
+    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">User name <!--<?php echo $user->user_name ?>--> </div>
     <div class="col-sm-10">
 
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
@@ -40,34 +40,35 @@
     </div>
   </div>
   <div class="form-group form-group-sm"> 
-   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/><br/>Password</div>
+   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>Password</div>
     <div class="col-sm-10"><br/>
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
       <span class="help-block">Please enter the new password.</span>
     </div>
   </div>
    <div class="form-group form-group-sm"> 
-   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/><br/>Repeat password</div>
+   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>Repeat password</div>
     <div class="col-sm-10"><br/>
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
       <span class="help-block">Please repeat the new password.</span>
     </div>
   </div>
   <div class="form-group form-group-sm">   
-    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/><br/>Company <!--<?php echo $user->Company ?>--></div>
+    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>Company <!--<?php echo $user->Company ?>--></div>
     <div class="col-sm-10"><br/>
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
       <span class="help-block">Please enter the new Company.</span>
     </div>
   </div>
   <div class="form-group form-group-sm"> 
-   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/><br/>Email <!--<?php echo $user->Email ?>--></div>
+   <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall"><br/>Email <!--<?php echo $user->Email ?>--></div>
     <div class="col-sm-10"><br/>
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
       <span class="help-block">Please enter the new email address.</span>
     </div>
   </div>
 </form>
- <br /><input type="submit" class="btn btn-primary btn pull-right" value="Save"></input>
+<!--<input type="submit" class="btn btn-primary btn pull-right" value="Save"></input>-->
+<input type="button" class="btn btn-primary pull-right" value="Save"></input><br /><br /><br /><br />
 	</body>
 </html>
