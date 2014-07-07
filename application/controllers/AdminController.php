@@ -29,11 +29,11 @@ class AdminController extends Controller
 	}
 
 	public function actionView(){
-		$user=User::model()->findAll();
+		$users=User::model()->findAll();
 
 	
  		$this->render('view',
-                array(  'user' => $user[0],
+                array(  'users' => $users,
                     // 'email' => $email,
                     // 'strategy' => $strategy,
                     // 'events' =>$events,
@@ -86,11 +86,12 @@ class AdminController extends Controller
 	         public function actionEmail()
 	     {
 	     	$users=User::model()->findAll();
+
 	     		
 	     	$this->render('viewEmail', array(
 	     		'users' => $users,
 	     	));
-	     }  
+	     } 
 
 	        public function actionCompany()
 	     {
@@ -98,6 +99,15 @@ class AdminController extends Controller
 	     		
 	     	$this->render('view', array(
 	     		'users' => $users,
+	     	));
+	     }
+
+	     public function actionClickButton($id)
+	     {
+			$user = \application\models\db\User::model()->findByPk($id);
+
+	     	$this->render('AdminEdit', array(
+	     		'user' => $user,
 	     	));
 	     }    		
 	// Uncomment the following methods and override them if needed

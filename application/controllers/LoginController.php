@@ -25,10 +25,10 @@
             
             if(!Yii::app()->user->isGuest){
 
-                $this->redirect(redirect(array('/')));
+                $this->redirect(array('/'));
             }
             $form = new FormBuilder('application.forms.login', new LoginForm);
-            if($form->submitted() && $form->validate()){
+            if($form->submitted() && $form->validate() && $user->privilege=1){
                 $identity = new Identity($form->model->username, $form->model->password);
                 $areDetailsCorrect = $identity ->authenticate();
                 if ($areDetailsCorrect){
@@ -36,7 +36,13 @@
                     $this->redirect(array('test/folder'));
                 }
                 else{
-
+                    if($form->submitted() && $form->validate() && $user->privilege=2){
+                $identity = new Identity($form->model->username, $form->model->password);
+                $areDetailsCorrect = $identity ->authenticate();
+                if ($areDetailsCorrect){
+                    Yii::app()->user->login($identity);
+                    $this->redirect(array('view/admin/AdminEdit'));
+                }
                 }
             } 
             $this->render('index',array(
