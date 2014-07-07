@@ -31,13 +31,13 @@
   <form class="form-horizontal" role="form" >
  <!-- action="<?php// echo $this->createUrl(array('/admin/create')) ?>" mothod="post" it must be put at form with class form-horiontal-->
   <br/>
-	<div class="form-group form-group-sm">   
-    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">Username<!--<?php echo $user->user_name ?>--></div>
+	<!--<div class="form-group form-group-sm">   
+    <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">Username<?php //echo $user->user_name ?></div>
     <div class="col-sm-10">
       <input class="form-control pull-left" type="text" id="formGroupInputSmall" placeholder="">
       <span class="help-block">Please enter the new Username.</span>
     </div>
-  </div>
+  </div>-->
   <div class="form-group form-group-sm">   
     <div class="col-sm-2 control-label pull-left" for="formGroupInputSmall">Password</div>
     <div class="col-sm-10">
