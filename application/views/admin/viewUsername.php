@@ -8,7 +8,7 @@
   </head>
     <body>
       <div class="panel panel-primary text-center">
-        <h1>Administrator Panel</h1><br /><h3>Hello <!--<?php echo $user->user_name ?>--></h3>
+        <h1>Administrator Panel</h1><br /><h3>Hello </h3>
      </div>
      
        <!-- <div class="form-group">
@@ -16,12 +16,10 @@
         </div>-
           <button type="submit" class="btn btn-default">Submit</button>-->
 <ul class="nav nav-tabs nav-justified" role="tablist">
-  <li class="active1"><a href="view.php"  >Company</a></li>
+  <li class="active1"><?php echo CHtml::link('Company', array('/admin/company')); ?></li>
 
-
-  </script>
-  <li class="active3"><a href="viewEmail.php" >Email</a></li>
-  <li class="active"><a href="#">Username</a></li>
+  <li class="active3"><?php echo CHtml::link('Email', array('/admin/email')); ?></li>
+  <li class="active"><?php echo CHtml::link('Username', array('/admin/username')); ?></li>
 </ul>
       </form><br/ >
      
@@ -39,25 +37,28 @@
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal --><br/><br/ >
-<br /><button type="button" class="btn btn-default btn-sm pull-right" value="Edit">
- New User name
-</button><br />
+<br /><input type="button" class="btn btn-default btn-sm pull-right" value="New Username">
+</input><br />
 
-<table class="table table-striped">
-  <tr>
+<table class="table">
+<?php $count = 0; ?>
+<?php foreach($users as $key=> $user): ?>
+  <?php if($user->user_name): ?>
+  <?php
+  $rowClass="";
+  if ($count % 2 ==0)
+    $rowClass="info"?> 
+  <tr class="<?php echo $rowClass; ?>">
+  <td><?php echo $user->user_name; ?></td>
     <td class="active">
-    <button type="button" class="btn btn-danger pull-right">Delete</button>
-      <button type="button" class="btn btn-info pull-right">Edit</button>
+    <input type="submit" class="btn btn-danger pull-right" value="Delete"> <?php echo $user->id; ?></input>
+      <input type="submit" class="btn btn-info pull-right" value="Edit"></input>
       
     </td>
-  </tr><br /><br/>
-<tr class=>
-  <td class="info">
-  <button type="button" class="btn btn-danger pull-right">Delete</button>
-    <button type="button" class="btn btn-info pull-right">Edit</button>
-    
-  </td>
-</tr>
+  </tr>
+  <?php $count++; ?>
+<?php endif ?>
+<?php endforeach; ?>
 </table>       
 </div>
     </body>

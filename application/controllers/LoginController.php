@@ -28,9 +28,7 @@
                 $this->redirect(array('/'));
             }
             $form = new FormBuilder('application.forms.login', new LoginForm);
-            if($form->submitted() && $form->validate() 
-                )
-            {
+            if($form->submitted() && $form->validate()) {
                 $identity = new Identity($form->model->username, $form->model->password);
                 $areDetailsCorrect = $identity ->authenticate();
                 if ($areDetailsCorrect){
