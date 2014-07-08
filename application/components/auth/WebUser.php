@@ -286,4 +286,30 @@
             }
         }
 
+        /**
+         * Get: Priv
+         *
+         * @shortcut
+         * @access public
+         * @return integer
+         */
+        public function getPriv()
+        {
+            return $this->getPrivilege();
+        }
+
+
+        /**
+         * Get: Privilege
+         *
+         * @access public
+         * @return integer
+         */
+        public function getPrivilege()
+        {
+            return is_object($this->user) && isset($this->user->priv)
+                ? (int) $this->user->priv
+                : 1;
+        }
+
     }
