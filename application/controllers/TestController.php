@@ -41,6 +41,7 @@
                 'rule'              => 'FREQ=MONTHLY;BYSETPOS=-1',
                 'strategy'          => null,
                 'superceded'        => null,
+
             );
             $payments = $plan->predictedPayments;
             foreach($payments as $date => $amount) {
@@ -84,8 +85,8 @@ public function actionFolder()
 
              $this->render(
                 'folder',
-                array( 'user' => $user,
-                    //'strategies' => $strategies,
+                array(  'user' => $user,
+                    //'email' => $email,
                     //'strategy' => $strategy,
                     //'events' =>$events,
                     //'form' => $form,
@@ -93,22 +94,7 @@ public function actionFolder()
                     )); 
             }
 
-public function actionFolder1()
-        {
-                // load user details ad pass to view
-              
 
-
-             $this->render(
-                'folder',
-                array( // 'customer' => $customer,
-                    //'strategies' => $strategies,
-                    //'strategy' => $strategy,
-                    //'events' =>$events,
-                    //'form' => $form,
-                  
-                    )); 
-            }
 
     }
 

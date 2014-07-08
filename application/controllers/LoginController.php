@@ -28,21 +28,17 @@
                 $this->redirect(array('/'));
             }
             $form = new FormBuilder('application.forms.login', new LoginForm);
-            if($form->submitted() && $form->validate() && $user->privilege=1){
+            if($form->submitted() && $form->validate() 
+                )
+            {
                 $identity = new Identity($form->model->username, $form->model->password);
                 $areDetailsCorrect = $identity ->authenticate();
                 if ($areDetailsCorrect){
                     Yii::app()->user->login($identity);
-                    $this->redirect(array('test/folder'));
-                }
-                else{
-                    if($form->submitted() && $form->validate() && $user->privilege=2){
-                $identity = new Identity($form->model->username, $form->model->password);
-                $areDetailsCorrect = $identity ->authenticate();
-                if ($areDetailsCorrect){
-                    Yii::app()->user->login($identity);
-                    $this->redirect(array('view/admin/AdminEdit'));
-                }
+                    if(Yii::app()->user->model()->priv >= 2)
+                        $this->redirect(array('admin/AdminEdit'));
+                    else
+                        $this->redirect(array('test/folder'));
                 }
             } 
             $this->render('index',array(

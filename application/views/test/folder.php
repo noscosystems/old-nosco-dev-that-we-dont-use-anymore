@@ -59,6 +59,8 @@ use application\models\db\User;
   </div>
 -->
   <button type="submit" class="btn btn-default">Submit</button>
+  <?php echo CHtml::link('Cancel', array(), array('class'=>'btn btn-md btn-default')); ?>
+  
 
 <!--
 
@@ -207,9 +209,7 @@ $(document).ready( function(){
                                     }
                                 }
                                 echo "<br/>Uploaded ".$count." files sucessfully";
-                            }
-
-*/
+                            }*/
                         ?>
 
 <?php
@@ -246,11 +246,7 @@ $upload = "upload/".$user->url."/";
                 $subject ="Document uploader";
                 $headers = "From: " . "Smart  Accounts\r\n";
                 mail($email, $subject, $text, $headers);
-
     }
-
-
-
 ?>
 
 

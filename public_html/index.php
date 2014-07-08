@@ -3,6 +3,8 @@
     // The following paths represent where to find Composer's Autoloader, the main application configuration file, and
     // the Yii Framework bootstrap file.
 
+    defined('PRODUCTION') || define('PRODUCTION', false);
+
     $app        = dirname(__FILE__) . '/../application';
 
     $yii        = $app . '/vendor/yiisoft/yii/framework/yii.php';
