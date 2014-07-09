@@ -59,7 +59,7 @@ class AdminController extends Controller
                 'email'=>$_POST['email'],
                 );
         }
-        if($user->save()){ 
+        if($user->save()){
             $this->redirect(array('admin/view'));
         }
         else{
@@ -74,7 +74,7 @@ class AdminController extends Controller
             echo $user->username;
         }
 
-    }      
+    }
     public function actionUsername()
     {
         $user=User::model()->findAll();
@@ -82,7 +82,7 @@ class AdminController extends Controller
         $this->render('viewUsername', array(
             'users' => $user,
             ));
-    }    
+    }
     public function actionEmail()
     {
         $users=User::model()->findAll();
@@ -91,7 +91,7 @@ class AdminController extends Controller
         $this->render('viewEmail', array(
             'users' => $users,
             ));
-    } 
+    }
 
     public function actionCompany()
     {
@@ -109,10 +109,10 @@ class AdminController extends Controller
         $this->render('AdminEdit', array(
             'user' => $user,
             ));
-    }   
+    }
 
     public function actionNewUsername()
-    {   
+    {
         // Construct a new Form.
         // Replace 'config' with the form configuration and 'Model' with the form model (see later).
         // See \application\forms for the configs.
@@ -120,7 +120,7 @@ class AdminController extends Controller
         $form = new Form('application.forms.example', new \application\models\form\NewUser);
 
         // Check if the form has been submitted and validated.
-        if($form->submitted() && $form->validated()){
+        if($form->submitted() && $form->validate()){
             // Query is true.
 
             // You are able to set the attributes of a database model with the attributes of a form model, example:

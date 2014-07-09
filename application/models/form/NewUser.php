@@ -13,7 +13,7 @@
     class NewUser extends FormModel
     {
 
-    	public $user;
+    	public $user_name;
         public $password;
         public $password2;
         public $email;
@@ -21,10 +21,10 @@
 
         public function rules()
         {
-            return array(                
+            return array(
                 // Here I will list some of the rules you can have, if you want more, Google or go to \application\components\FormModel.
-                array('user, password, password2, email, company', 'required'),
-                array('user', 'length', 'min' => 3, 'max' => 30),
+                array('user_name, password, password2, email, company', 'required'),
+                array('user_name', 'length', 'min' => 3, 'max' => 30),
                 array('password', 'length', 'min' => 5, 'max' => 30),
                 array('password2', 'length', 'min' => 5, 'max' => 30),
                 array('email', 'email'),
@@ -33,7 +33,7 @@
         }
 
 
-    
+
 
 
     }
