@@ -58,8 +58,8 @@ use application\models\db\User;
     </label>
   </div>
 -->
-  <button type="submit" class="btn btn-default">Submit</button>
-  <?php echo CHtml::link('Cancel', array(), array('class'=>'btn btn-md btn-default')); ?>
+ <?php echo CHtml::link('Submit', array(), array('class'=>'btn btn-md btn-info')); ?>
+  <?php echo CHtml::link('Cancel', array(), array('class'=>'btn btn-md btn-danger')); ?>
   
 
 <!--

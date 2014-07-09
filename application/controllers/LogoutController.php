@@ -11,7 +11,7 @@ class LogoutController extends Controller
 			Yii::app()->user->logout();
 		}
 		// go to homepage
-		$this->redirect(array('forms/login'));
+		$this->redirect(array('/'));
 	}
 }
 ?>

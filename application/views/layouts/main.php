@@ -100,47 +100,32 @@
                 .pop {
                     cursor: pointer;
                 }
-  /*          </style>
+          </style>
             <div class="sidenav hidden-print">
+
                 <div class="link">
-                    <?php echo CHtml::link('<span class="glyphicon glyphicon-stats"></span>', Yii::app()->homeUrl, array()); ?>
-                    <div class="label">Forecast</div>
+                    <?php echo CHtml::link('<span class="glyphicon glyphicon-user"></span>', array('/login/index'), array()); ?>
+                    <div class="label">Login</div>
                 </div>
+
                 <div class="link">
-                    <?php echo CHtml::link('<span class="glyphicon glyphicon-calendar"></span>', array('/calendar'), array()); ?>
-                    <div class="label">Calendar</div>
-                </div>
-                <div class="link">
-                    <?php echo CHtml::link('<span class="glyphicon glyphicon-user"></span>', array('/enquiry/new'), array()); ?>
-                    <div class="label">New Enquiry</div>
-                </div>
-                <div class="link">
-                    <?php echo CHtml::link('<span class="glyphicon glyphicon-book"></span>', '#pricelist', array('data-toggle' => 'modal')); ?>
-                    <div class="label">Price List</div>
-                </div>
-                <div class="link">
-                    <?php echo CHtml::link('<span class="glyphicon glyphicon-cog"></span>', array('/admin'), array()); ?>
+                    <?php echo CHtml::link('<span class="glyphicon glyphicon-cog"></span>', array('/admin/view'), array()); ?>
                     <div class="label">Admin</div>
                 </div>
-                <!-- <div class="footer">
-                    <div class="link" id="addNew">
-                        <div class="btn-group dropup">
-                            <button type="button" class="dropdown-toggle" data-toggle="dropdown" style="background: none; border: none;">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" style="text-shadow: none; text-align: right;">
-                                <li><?php echo CHtml::link('<span class="glyphicon glyphicon-user pull-left"></span> Customer', array(''), array()); ?></li>
-                                <li class="divider"></li>
-                                <li><?php echo CHtml::link('Enquiry', array('/enquiry/new'), array()); ?></li>
-                                <li><?php echo CHtml::link('Call Back', array(''), array()); ?></li>
-                                <li><?php echo CHtml::link('Quote', array(''), array()); ?></li>
-                                <li><?php echo CHtml::link('Booking', array(''), array()); ?></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div> -->
+
+                <div class="link">
+                    <?php echo CHtml::link('<span class="glyphicon glyphicon-save"></span>', array('/test/folder'), array()); ?>
+                    <div class="label">Folder uploader</div>
+                </div>
+
+                <div class="link">
+                    <?php echo CHtml::link('<span class="glyphicon glyphicon-off"></span>', array('/logout/index'), array()); ?>
+                    <div class="label">Logout</div>
+                </div>
             </div>
-*/
+
+
+
             <script>
             $(document).ready( function(){
                 // Main links
@@ -167,7 +152,7 @@
                 </div>
             <?php endif; ?>
 
-            <div class="col-xs-11 col-xs-offset-1">
+            <div class="col-xs-11">
                 <?php echo $content; ?>
             </div>
 
