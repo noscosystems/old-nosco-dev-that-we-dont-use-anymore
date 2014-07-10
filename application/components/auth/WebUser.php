@@ -57,6 +57,22 @@
 
 
         /**
+         * Login
+         *
+         * @access public
+         * @return boolean
+         */
+        public function login($identity, $duration = 0)
+        {
+            if(parent::login($identity, $duration)) {
+                $this->init();
+                return true;
+            }
+            return false;
+        }
+
+
+        /**
          * Get: User ID
          *
          * @access public
