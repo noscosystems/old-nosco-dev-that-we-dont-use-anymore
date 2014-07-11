@@ -31,6 +31,13 @@ class AdminController extends Controller
     public function actionView(){
         $users=User::model()->findAll();
 
+        if (isset($_POST['deleteID'])){
+
+            $user = User::model()->findByPk($_POST['deleteID']);
+            if($user->delete())
+                $this->redirect(array('admin/view'));
+        }
+
 
         $this->render('view',
             array(  'users' => $users,
@@ -97,6 +104,13 @@ class AdminController extends Controller
     {
         $users=User::model()->findAll();
 
+        if (isset($_POST['deleteID'])){
+
+            $user = User::model()->findByPk($_POST['deleteID']);
+            if($user->delete())
+                $this->redirect(array('admin/view'));
+        }
+
         $this->render('view', array(
             'users' => $users,
             ));
@@ -140,6 +154,23 @@ class AdminController extends Controller
         ));
 
     }
+
+        public function actionDeleteUser(){
+            if (isset($_POST['deleteID'])){
+                $id = $_POST['deleteID'];
+                $user = User::model()->findByPk($_POST['deleteID']);
+                if($user->delete())
+                    $this->redirect(array('admin/view'));
+            }
+            //$user = User::model()->findByAttributes(array(
+             //'id' => Yii::app()->user->id,
+               // ));
+
+           // $user=User::model()->find($user->id); 
+           // $user->delete();
+
+            
+        }
     // Uncomment the following methods and override them if needed
     /*
     public function filters()user_name

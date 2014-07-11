@@ -37,7 +37,7 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <div class="text-right">
-<br /><?php echo CHtml::link('New company', array('/admin/NewUsername'), array('class'=>'btn btn-sm btn-info')); ?>
+    <br /><?php echo CHtml::link('New company', array('/admin/NewUsername'), array('class'=>'btn btn-sm btn-info')); ?>
 </div><br />
 
 <table class="table">
@@ -52,37 +52,9 @@
                 <td><?php echo $user->company; ?></td>
                 <td class="text-center"><?php echo $user->id; ?></td>
                 <td class="text-right">
-                    <div class="btn-group">
+                    <div class="btn-group" id="adminButtons">
                         <?php echo CHtml::link('Edit', array('/admin/ClickButton','id' => $user->id), array('class' =>'btn btn-md btn-info')); ?>
-                        <input type="submit" class="btn btn-danger" value="Delete"/>
-
-
-                      <!--  <script>
-                        $(dokument).ready(function(){
-                            $(.btn btn-danger).click(function(){
-                                $(.modal fade).show(.)
-                            });
-                        });
-                        </script>-->
-                        <div class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <p>One fine body&hellip;</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-
+                        <?php echo CHtml::link('Delete', '#delete', array('class'=>'btn btn-danger', 'data-toggle'=>'modal', 'delete' => $user->id)); ?>
                     </div>
                 </td>
             </tr>
@@ -92,3 +64,40 @@
 </div>
 </body>
 </html>
+
+
+
+
+<!-- Modal -->
+<form  method="POST" role="form" name="deleteForm" id="">
+    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Delete</h4>
+                </div>
+                <div class="modal-body">
+                     <h4 class="modal-title" id="myModalLabel">Are you sure you want to delete this user</h4>
+                <input type="hidden" name="deleteID" id="inputDeleteID" class="form-control" value="ID" required="required">
+                </div>
+                <div class="modal-footer">
+                    
+                    <button type="submit" class="btn btn-md btn-danger">Delete</button>
+                    <?php echo CHtml::link('Cancel', array('/admin/view'), array('class'=>'btn btn-md btn-info')); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready( function(){
+        $("#adminButtons a").click( function(event){
+            var delID = $(this).attr("delete");
+
+            if(delID && delID != "undefined"){
+                $("#inputDeleteID").val(delID);
+            }
+        })
+    })
+</script>
