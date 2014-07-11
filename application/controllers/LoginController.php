@@ -33,10 +33,10 @@
                 $areDetailsCorrect = $identity ->authenticate();
                 if ($areDetailsCorrect){
                     Yii::app()->user->login($identity);
-                    if(Yii::app()->user->model()->priv >= 2)
-                        $this->redirect(array('admin/AdminEdit'));
-                    else
-                        $this->redirect(array('test/folder'));
+                     if(Yii::app()->user->priv == 2)
+                          $this->redirect(array('admin/view'));
+                     else
+                          $this->redirect(array('test/folder'));
                 }
             } 
             $this->render('index',array(

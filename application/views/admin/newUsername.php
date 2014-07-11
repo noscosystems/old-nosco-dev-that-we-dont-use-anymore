@@ -8,7 +8,7 @@ This page will not work in the browser.
 <?php
 // Start by rendering the form in both PHP and Html
 // This will apply any html attributes that you want to apply
-// $form->attributes = array('class' => 'form-control');
+$form->attributes = array('class' => 'form-control');
 // This will then render the form tag with any attributes either set in the configuration or the line about.
 echo $form->renderBegin();
 // Finally, use the widget for the PHP side of the form, the widget is used to render properties.

@@ -102,26 +102,30 @@
                 }
           </style>
             <div class="sidenav hidden-print">
-
+            <?php if(Yii::app()->user->isGuest): ?>
                 <div class="link">
                     <?php echo CHtml::link('<span class="glyphicon glyphicon-user"></span>', array('/login/index'), array()); ?>
                     <div class="label">Login</div>
                 </div>
-
-                <div class="link">
-                    <?php echo CHtml::link('<span class="glyphicon glyphicon-cog"></span>', array('/admin/view'), array()); ?>
-                    <div class="label">Admin</div>
-                </div>
-
+            <?php endif; ?>
+                <?php if(!Yii::app()->user->isGuest): ?>
+                    <div class="link">
+                        <?php echo CHtml::link('<span class="glyphicon glyphicon-cog"></span>', array('/admin/view'), array()); ?>
+                        <div class="label">Admin</div>
+                    </div>
+                <?php endif; ?>
+                <?php if(!Yii::app()->user->isGuest): ?>
                 <div class="link">
                     <?php echo CHtml::link('<span class="glyphicon glyphicon-save"></span>', array('/test/folder'), array()); ?>
                     <div class="label">Folder uploader</div>
                 </div>
-
+            <?php endif; ?>
+                <?php if(!Yii::app()->user->isGuest): ?>
                 <div class="link">
                     <?php echo CHtml::link('<span class="glyphicon glyphicon-off"></span>', array('/logout/index'), array()); ?>
                     <div class="label">Logout</div>
                 </div>
+            <?php endif; ?>
             </div>
 
 
